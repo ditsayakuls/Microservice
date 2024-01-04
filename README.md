@@ -20,5 +20,6 @@
 - CPU
 - Memory 
 - Harddisk 
+- Disk
 
 
