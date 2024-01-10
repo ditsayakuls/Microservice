@@ -26,7 +26,7 @@ pipeline{
                     usernameVariable: 'githubUsername'
                 )]
                  ){
-                sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
+                sh "docker login ghcr.io -u ${env.githubUsername} -p ${env.githubPassword}"
                 sh "docker push ghcr.io/ditsayakuls/microservice2"
                 // sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
                 }
