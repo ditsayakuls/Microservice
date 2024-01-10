@@ -12,7 +12,7 @@ pipeline{
         stage('Build Stage (Docker)'){
             agent { label 'build-server'}
             steps {
-                sh "docker build ghcr.io/ditsayakuls/microservice2."
+                sh "docker build ghcr.io/ditsayakuls/microservice2 ."
             }
         }
     }
