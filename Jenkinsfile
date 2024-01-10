@@ -9,5 +9,11 @@ pipeline{
                 sh "echo ${env.APP_NAME}"
             }   
         }
+        stage('Build Stage (Docker)'){
+            agent :{ Label 'build-server'}
+            steps {
+                sh "docker build ghcr.io/ditsayakuls/microservice2."
+            }
+        }
     }
 }
