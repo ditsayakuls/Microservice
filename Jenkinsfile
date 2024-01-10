@@ -15,7 +15,7 @@ pipeline{
                 sh "docker build -t ghcr.io/ditsayakuls/microservice2 ."
             }
         }
-         [2:33 PM] สมหมาย กรังพานิช
+        
         stage('Deliver Docker Image') {
             agent {label 'build-server'}
             steps {
