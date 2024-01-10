@@ -2,6 +2,7 @@ pipeline{
     agent any 
     environment{
         APP_NAME= "test app name"
+        IMAGE_NAME="ghcr.io/ditsayakuls/microservice2"
     }
     stages {
         stage('Build Image'){
@@ -12,7 +13,8 @@ pipeline{
         stage('Build Stage (Docker)'){
             agent { label 'build-server'}
             steps {
-                sh "docker build -t ghcr.io/ditsayakuls/microservice2 ."
+                sh " docker build-t  ${env.IMAGE_NAME}"
+                // sh "docker build -t ghcr.io/ditsayakuls/microservice2 ."
             }
         }
         
@@ -27,8 +29,13 @@ pipeline{
                 )]
                  ){
                 sh "docker login ghcr.io -u ${env.githubUsername} -p ${env.githubPassword}"
-                sh "docker push ghcr.io/ditsayakuls/microservice2"
-                // sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+                sh "docker tag ${env.IMAGE_NAME} ${env.IMAGE_NAME}:${env.BUILD_NUMBER}" 
+                sh "docker push ${env.IMAGE_NAME}"
+                sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}" 
+                sh "docker rmi ${env.IMAGE_NAME}"
+                sh "docker rmi ${env.IMAGE_NAME}:${env.BUILD_NUMBER}" 
+                //sh "docker push ghcr.io/ditsayakuls/microservice2"
+                
                 }
                 }
         }
