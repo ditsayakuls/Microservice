@@ -8,6 +8,6 @@ stages {
      steps{
         sh"echo${env.APP_NAME}"
      }   
-    }}
-}
+    }
+    }
 }
