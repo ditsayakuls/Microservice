@@ -6,7 +6,7 @@ pipeline{
     stages {
         stage('Build Image'){
             steps{
-                sh "echo${env.APP_NAME}"
+                sh "echo ${env.APP_NAME}"
             }   
         }
     }
