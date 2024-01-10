@@ -25,12 +25,12 @@ pipeline{
                     passwordVariable: 'githubPassword',
                     usernameVariable: 'githubUsername'
                 )]
-            ){
+                 ){
                 sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
                 sh "docker push ghcr.io/ditsayakuls/microservice2"
                 // sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
-            }
-            }
+                }
+                }
         }
         }
     }
