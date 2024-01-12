@@ -3,11 +3,54 @@
 <head>
 <title>Page Title</title>
 </head>
+
+<style>
+    .smiley {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .smiley::before,
+    .smiley::after {
+        content: '';
+        position: absolute;
+        top: 50px;
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .smiley::before {
+        left: 50px;
+    }
+
+    .smiley::after {
+        right: 50px;
+    }
+
+    .smile {
+        position: absolute;
+        top: 100px;
+        left: 30px;
+        width: 140px;
+        height: 70px;
+        background-color: yellow;
+        border-radius: 0 0 120px 120px;
+        border: 5px solid black;
+        border-top: none;
+    }
+</style>
 <body>
 
 <h1>This is a Heading Hello World Nginx on Docker ^_^</h1>
 <p>This is a paragraph. Test chage Version2 </p>
 <p>This is a docker2 Ja test </p> 
-
+<div class="smiley">
+    <div class="smile"></div>
+</div>
 </body>
 </html>
