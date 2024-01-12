@@ -14,6 +14,7 @@ pipeline{
             agent { label 'build-server'}
             steps {
                 sh " docker build -t ${env.IMAGE_NAME} ."
+                
                 // sh "docker build -t ghcr.io/ditsayakuls/microservice2 ."
             }
         }
@@ -42,6 +43,7 @@ pipeline{
             stage('Deploy Stage (K8s)') {
                 agent {label 'deploy-server'}
                 steps {
+                    sh "kubectl delete -f deploy-web.yml"
                     sh "kubectl apply -f deploy-web.yml"
                 }
             }

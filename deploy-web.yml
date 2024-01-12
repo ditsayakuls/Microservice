@@ -15,6 +15,7 @@ spec:
       containers:
       - name: user02-server
         image: ghcr.io/ditsayakuls/microservice2
+        imagesPollPolicy: Always
         ports:
         - containerPort: 80
 --- 
