@@ -14,7 +14,6 @@ pipeline{
             agent { label 'build-server'}
             steps {
                 sh " docker build -t ${env.IMAGE_NAME} ."
-                
                 // sh "docker build -t ghcr.io/ditsayakuls/microservice2 ."
             }
         }
