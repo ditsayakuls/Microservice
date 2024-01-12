@@ -45,7 +45,9 @@ pipeline{
                 script {
                     try {
                         sh "kubectl delete -f deploy-web.yml" 
-                        } catch (e){}
+                        } catch (e){
+                            sho "echo can not delete"
+                        }
                         sh "kubectl apply -f deploy-web.yml"   
                         }
                 }
